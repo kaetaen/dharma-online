@@ -8,6 +8,7 @@ import Suggests from "./pages/Suggests";
 import About from "./pages/About";
 import Vajrayana from "./pages/Vajrayana";
 import Theravada from "./pages/Theravada";
+import Mahayana from "./pages/Mahayana";
 
 export const router = createBrowserRouter([
   {
@@ -30,5 +31,9 @@ export const router = createBrowserRouter([
   {
     path: "/theravada",
     element: <Theravada />
+  },
+  {
+    path: "/mahayana",
+    element: <Mahayana />
   }
 ]);
