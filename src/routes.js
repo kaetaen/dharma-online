@@ -6,6 +6,8 @@ import "./index.css";
 import Home from './pages/Home'
 import Suggests from "./pages/Suggests";
 import About from "./pages/About";
+import Vajrayana from "./pages/Vajrayana";
+import Theravada from "./pages/Theravada";
 
 export const router = createBrowserRouter([
   {
@@ -20,5 +22,13 @@ export const router = createBrowserRouter([
   {
     path: "/sobre",
     element: <About />
+  },
+  {
+    path: "/vajrayana",
+    element: <Vajrayana />
+  },
+  {
+    path: "/theravada",
+    element: <Theravada />
   }
 ]);
