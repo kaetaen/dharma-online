@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
 import bg from '../assets/bg.jpg'
+import NavBar from "../components/NavBar";
 
 function Home () {
     return (
+        <>
+        <NavBar />
         <div className="image-background"  style={{ background: `url(${bg})`}}>
             <section class="bg-black bg-opacity-60 text-white">
                 <div
@@ -21,12 +25,12 @@ function Home () {
                     </p>
 
                     <div class="mt-8 flex flex-wrap justify-center gap-4">
-                        <a
+                        <Link
                         class="block w-full rounded border border-red-500 bg-red-500 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                        href="/get-started"
+                        to={"/sugestoes"} 
                         >
                         Faça uma sugestão
-                        </a>
+                        </Link>
 
                         <a
                         class="block w-full rounded border border-emerald-600 px-12 py-3 text-sm font-medium text-white hover:bg-emerald-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
@@ -39,6 +43,7 @@ function Home () {
                 </div>
             </section>
         </div>
+        </>
     )
 }
 
