@@ -32,12 +32,12 @@ function Home () {
                         Faça uma sugestão
                         </Link>
 
-                        <a
+                        <Link
                         class="block w-full rounded border border-emerald-600 px-12 py-3 text-sm font-medium text-white hover:bg-emerald-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-                        href="/about"
+                        to={"/sobre"}
                         >
                         Sobre
-                        </a>
+                        </Link>
                     </div>
                     </div>
                 </div>
