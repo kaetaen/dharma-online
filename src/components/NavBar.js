@@ -26,13 +26,13 @@ function NavBar () {
         <div  ref={navMobileRef} className=" items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
           <ul className="bg-emerald-700 flex flex-col p-4 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  dark:border-gray-700">
             <li>
-              <a href="#" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-red-600 md:hover:bg-transparent md:hover:text-red-300 md:p-0 ">Theravada</a>
+              <Link to={"/theravada"} className="block py-2 pl-3 pr-4 text-white rounded hover:bg-red-600 md:hover:bg-transparent md:hover:text-red-300 md:p-0 ">Theravada</Link>
             </li>
             <li>
-              <a href="#" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-red-600 md:hover:bg-transparent md:hover:text-red-300 md:p-0">Mahayana</a>
+              <Link to={"/mahayana"} className="block py-2 pl-3 pr-4 text-white rounded hover:bg-red-600 md:hover:bg-transparent md:hover:text-red-300 md:p-0">Mahayana</Link>
             </li>
             <li>
-              <a href="#" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-red-600 md:hover:bg-transparent md:hover:text-red-300 md:p-0 ">Vajrayana</a>
+              <Link to={"/vajrayana"} className="block py-2 pl-3 pr-4 text-white rounded hover:bg-red-600 md:hover:bg-transparent md:hover:text-red-300 md:p-0 ">Vajrayana</Link>
             </li>
           </ul>
         </div>
