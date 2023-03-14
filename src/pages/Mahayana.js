@@ -71,6 +71,13 @@ function Mahayana () {
                                                 <td class="whitespace-nowrap px-6 py-4 font-medium">19:00</td>
                                                 <td class="whitespace-nowrap px-6 py-4 font-medium"><a className="text-red-300" href="https://bit.ly/shoryuzendo">Clique para acessar</a></td>
                                             </tr>
+                                            <tr class="border-b dark:border-neutral-500">
+                                                <td class="whitespace-nowrap px-6 py-4 font-medium">Rō Tsu Zen</td>
+                                                <td class="whitespace-nowrap px-6 py-4 font-medium">Soto Shu</td>
+                                                <td class="whitespace-nowrap px-6 py-4 font-medium">Zazen</td>
+                                                <td class="whitespace-nowrap px-6 py-4 font-medium">18:55</td>
+                                                <td class="whitespace-nowrap px-6 py-4 font-medium">Instagram: <a className="text-red-300" href="https://www.instagram.com/rotsu_zen/">Clique para acessar</a></td>
+                                            </tr>
                                         </tbody>
                                         </table>
                                     </div>
