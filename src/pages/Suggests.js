@@ -32,7 +32,7 @@ function Suggests() {
 
     const handleDeleteDayAndHour = (e, id) => {
         e.preventDefault()
-        const updatedDayAndHourList = dayAndHour.filter((value) => value.id != id )
+        const updatedDayAndHourList = dayAndHour.filter((value) => value.id !== id )
         setDayAndHour(updatedDayAndHourList)
     }
 
