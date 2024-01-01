@@ -1,5 +1,7 @@
 import NavBar from "../components/NavBar"
 import { useState } from "react"
+import firestoreService from "../services/firestore.service"
+import {v4 as uuidv4} from 'uuid';
 
 function EmptyFieldError(message="Preenchimento obrigatório") {
     return <p className="text-red-500 text-xs italic">{message}</p>
@@ -19,16 +21,14 @@ function Suggests() {
     const [email, setEmail] = useState("")
 
     const WeekDays = {
-        "seg": "Segunda-feira",
-        "ter": "Terça-feira",
-        "qua": "Quarta-feira",
-        "qui": "Quinta-feira",
-        "sex": "Sexta-feira",
-        "sab": "Sábado",
-        "dom": "Domingo"
+        seg: "Segunda-feira",
+        ter: "Terça-feira",
+        qua: "Quarta-feira",
+        qui: "Quinta-feira",
+        sex: "Sexta-feira",
+        sab: "Sábado",
+        dom: "Domingo"
     }
-
-    console.log(aditionalInformation)
 
     const handleDeleteDayAndHour = (e, id) => {
         e.preventDefault()
@@ -47,7 +47,24 @@ function Suggests() {
         setHour("")
     }
 
-    console.log(dayAndHour)
+
+    const saveOnFireStore = async (e) => {
+        const formData = {
+            id: uuidv4(),
+            sanghaName,
+            vehile,
+            school,
+            practice,
+            dayAndHour,
+            practiceLink,
+            aditionalInformation,
+            email,
+            d:0
+        }
+
+        await firestoreService.createPractice(formData)
+        
+    }
 
     return (
         <>
@@ -230,7 +247,7 @@ function Suggests() {
                 <div className="flex md:justify-end justify-center">
                 <div className="flex flex-wrap -mx-3 mb-6 md:w-1/3 w-full">
                     <div className="flex row-auto w-full px-3 ">
-                        <button type="button" className=" text-white w-200 w-full  bg-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-7 py-3 text-center mb-1 md:mr-0 "><span>Enviar</span></button>
+                        <button onClick={(e) => saveOnFireStore(e) } type="button" className=" text-white w-200 w-full  bg-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-7 py-3 text-center mb-1 md:mr-0 "><span>Enviar</span></button>
                     </div>
                 </div>
                 </div>
