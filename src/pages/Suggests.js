@@ -2,6 +2,8 @@ import NavBar from "../components/NavBar"
 import { useState } from "react"
 import firestoreService from "../services/firestore.service"
 import {v4 as uuidv4} from 'uuid';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 function EmptyFieldError(message="Preenchimento obrigatório") {
     return <p className="text-red-500 text-xs italic">{message}</p>
@@ -39,7 +41,7 @@ function Suggests() {
     const handleDayAndHour = () => {
         const practiceDayAndHour = {
             "id": dayAndHour.length > 0 ? dayAndHour[dayAndHour.length - 1].id + 1 : 0,
-            "day": day,
+            "day": dayd,
             "hour": hour
         }
         const updatedDayAndHourList = [...dayAndHour, practiceDayAndHour]
@@ -47,8 +49,24 @@ function Suggests() {
         setHour("")
     }
 
-
+d
     const saveOnFireStore = async (e) => {
+        const Modal = withReactContent(Swal)
+        debugger;
+        if(!(sanghaName && vehile && school && practice && dayAndHour && practiceLink)){
+            Modal.fire({
+                icon: "error",
+                title: "Erro!",
+                text: "Verifique se os campos obrigatórios foram preenchidos!",
+                background: "#282a36",
+                color: "#f8f8f2",
+                confirmButtonColor: "#065f46",   
+            })
+
+            return
+        }
+
+        
         const formData = {
             id: uuidv4(),
             sanghaName,
@@ -62,7 +80,41 @@ function Suggests() {
             d:0
         }
 
-        await firestoreService.createPractice(formData)
+
+        Modal.fire({
+            title: "Deseja salvar o local de prática?",
+            icon: "info",
+            background: "#282a36",
+            color: "#f8f8f2",
+            confirmButtonColor: "#065f46",   
+        }).then( async () => {
+            
+            const created = await firestoreService.createPractice(formData)
+
+            if (!created) {
+                throw new Error("Error when try to save practice.")
+            }
+
+            return Modal.fire({
+                title: "As informações foram salvas!",
+                text: "Os dados passarão por análise e em breve serão disponibilizados.",
+                background: "#282a36",
+                color: "#f8f8f2",
+                icon: "success",
+                confirmButtonColor: "#065f46",   
+            })
+
+        }).catch(() => {
+            return Modal.fire({
+                title: "Erro!",
+                text: "Houve um erro ao tentar salvar as informações",
+                background: "#282a36",
+                icon: "error",
+                color: "#f8f8f2",
+                confirmButtonColor: "#065f46",   
+
+            }) 
+        })
         
     }
 

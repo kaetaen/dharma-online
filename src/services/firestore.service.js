@@ -10,9 +10,10 @@ class FirestoreService {
     async createPractice(content) {
         try {
             await addDoc(collection(this.db, this.collection), content);
-            console.log("Practice added")
+            return true
         } catch (e) {
             console.error("Error adding document: ", e);
+            return false
         }
     }
 
