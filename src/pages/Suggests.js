@@ -41,7 +41,7 @@ function Suggests() {
     const handleDayAndHour = () => {
         const practiceDayAndHour = {
             "id": dayAndHour.length > 0 ? dayAndHour[dayAndHour.length - 1].id + 1 : 0,
-            "day": dayd,
+            "day": day,
             "hour": hour
         }
         const updatedDayAndHourList = [...dayAndHour, practiceDayAndHour]
@@ -49,10 +49,8 @@ function Suggests() {
         setHour("")
     }
 
-d
     const saveOnFireStore = async (e) => {
         const Modal = withReactContent(Swal)
-        debugger;
         if(!(sanghaName && vehile && school && practice && dayAndHour && practiceLink)){
             Modal.fire({
                 icon: "error",
@@ -88,10 +86,10 @@ d
             color: "#f8f8f2",
             confirmButtonColor: "#065f46",   
         }).then( async () => {
-            
             const created = await firestoreService.createPractice(formData)
 
             if (!created) {
+                console.log("ok")
                 throw new Error("Error when try to save practice.")
             }
 
