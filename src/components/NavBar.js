@@ -13,7 +13,7 @@ function NavBar () {
         <nav className="bg-emerald-800 border-gray-200 px-2 sm:px-4 py-2.5 rounded ">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link to={"/"} className="flex items-center">
-            <img  src={dharmaWheel} className="h-8 mr-3 sm:h-9" alt="Dharma logo" />
+            <img  src={dharmaWheel} className="h-8 mr-3 sm:h-9 spinDharmaWheel" alt="Dharma logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Dharma Online</span>
         </Link>
         <div className="flex md:order-2">
